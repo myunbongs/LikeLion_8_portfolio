@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LikeLionSMU {% block title %} {% endblock %}</title>
+</head>
+<body>
+    {% if user.is_authenticated %} <!-- 로그인 된 사용자 -->
+
+    {% else %}  <!-- 로그인 안 된 사용자 -->
+
+    {% endif %}
+
+    {% block content %}
+
+    {% endblock %}
+    <footer class="footer">
+        <p>우리는 늠름 사자</p>
+    </footer>
+</body>
+</html>

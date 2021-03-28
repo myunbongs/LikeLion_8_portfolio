@@ -5,9 +5,6 @@ from django.contrib import auth
 
 # Create your views here.
 
-def home_view (request) :
-    return render (request,"home.html")
-
 def signup_view (request) :
     if request.method == 'POST' : #요청이 post 형식이면 각 정보를 받아와서 user에 저장
         user = User.objects.create_user(name=request.POST['name'],
