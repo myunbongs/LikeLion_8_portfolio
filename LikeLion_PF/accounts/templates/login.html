@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Login{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    {% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
+    {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+         <form class="logInForm" method= "POST" action ="{% url 'login' %}">
+             {% csrf_token %}
+                 <p class="logInFormLabel">로그인</p>
+
+                 <div class="logInFormInput">
+                     <label for="formGroupExampleInput" class="form-label">아이디</label>
+                     <input name="userid" type="text" id="formGroupExampleInput" placeholder="Example input placeholder" value="">
+                 </div>
+
+                 <div class="logInFormInput">
+                     <label for="formGroupExampleInput2" class="form-label">비밀번호</label>
+                     <input name="password" type="password" id="formGroupExampleInput2" placeholder="Example input placeholder" value="">
+                 </div>
+                 <button class="logInButton">로그인</button>
+         </form>
+    {% endblock %}
+
+</body>
+</html>
