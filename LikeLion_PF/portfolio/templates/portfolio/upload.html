@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %} {% endblock %}
-
 {% block content %}
+    <h1 class="title">원하는 게시글을 작성해주세요</h1><br>
     <form action="" method="post" enctype="multipart/form-data">
-        {{ form.as_p }}
         {% csrf_token %}
-        <input type="submit" value="올리기">
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-dark" id="btn-orange-margin">작성하기</button>
     </form>
 {% endblock %}

@@ -1,11 +1,33 @@
 {% extends 'base.html' %}
 
-{% block title %} {{ object.title|truncatechars:10 }} {% endblock %}
+<head>
+    {% load static %}
+    {% block detailcss %}
+    <link rel="stylesheet" href="{% static 'detail.css' %}">
+    {% endblock %}
+</head>
 
 {% block content %}
-    <p><img src="{{ object.portfolio.url }}"></p>
-    <p>{{ object.author.username }}</p>
-    <p>{{ object.content|linebreaksbr }}</p>
-    <a href="{% url 'portfolio:portfolio_delete' pk=object.id %}">삭제</a>
-    <a href="{% url 'portfolio:portfolio_update' pk=object.id %}">수정</a>
+    <!-- admin 계정일 경우만 밑의 버튼 보임 -->
+    <p style="text-align: right;">
+        <a href="{% url 'portfolio:portfolio_update' pk=object.id %}" class="btn btn-dark" id="btn-orange">수정하기</a>
+        <a href="{% url 'portfolio:portfolio_delete' pk=object.id %}" class="btn btn-dark" id="btn-orange">삭제하기</a>
+    </p>
+    
+    <h1 class="title">{{object.title}}</h1>
+    
+    <h5 class="card-title" id="card-writer">작성자: {{object.author.username}}</h5>
+        <div class="card text-center" id="card-border">
+            <div class="card-body" style="padding: 50px;">
+                
+                {% if object.portfolio %}
+                <p><img src="{{object.portfolio.url}}" alt="" style="width: 300px;"></p>
+                {% endif %}
+    
+                <p class="card-text" id="card-content">{{object.content|linebreaksbr}}</p>
+            </div>
+            <div class="card-footer text-muted">
+                
+            </div>
+        </div>
 {% endblock %}
