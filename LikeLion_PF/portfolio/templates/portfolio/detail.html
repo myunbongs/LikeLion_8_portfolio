@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ object.title|truncatechars:10 }} {% endblock %}
+
+{% block content %}
+    <p><img src="{{ object.portfolio.url }}"></p>
+    <p>{{ object.author.username }}</p>
+    <p>{{ object.content|linebreaksbr }}</p>
+    <a href="{% url 'portfolio:portfolio_delete' pk=object.id %}">삭제</a>
+    <a href="{% url 'portfolio:portfolio_update' pk=object.id %}">수정</a>
+{% endblock %}
