@@ -1,0 +1,35 @@
+@import "/static/css/reset.css";
+body{
+    color : white;
+    font-weight: 600;
+}
+.logInForm{
+    font-weight: normal;
+    background-color: rgba(255,255,255,0.4);
+    height : 420px;
+    width : 450px;
+    margin-top: 100px;
+    margin-left : 35%;
+    margin-bottom : 100px;
+}
+
+.logInFormLabel{
+    font-size : large;
+    margin-left : 40px;
+    padding-top : 60px;
+}
+
+.logInFormInput{
+    margin-top : 50px;
+    margin-left : 40px;
+}
+
+.logInButton{
+    margin-top : 50px;
+    margin-left : 40%;
+    background-color: rgba(255,255,255,0.8);
+    border : none;
+    padding : 10px;
+    padding-left : 15px;
+    padding-right : 15px;
+}

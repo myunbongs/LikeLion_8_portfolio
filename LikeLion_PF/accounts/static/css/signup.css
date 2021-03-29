@@ -1,0 +1,31 @@
+@import "/static/css/reset.css";
+body{
+    color : white;
+    font-weight: 600;
+}
+.SignUpForm{
+    font-weight: normal;
+    background-color: rgba(255,255,255,0.4);
+    height : 580px;
+    width : 1200px;
+    margin-top: 30px;
+    margin-left : 200px;
+    margin-bottom: 30px;
+
+}
+
+.SignUpFormLabel{
+    font-size : large;
+    margin : 40px;
+    margin-left : 80px;
+}
+.SignUp{
+    margin-top: 21px;
+    width : 500px;
+    margin-left : 80px;
+}
+.btn{
+    color : black;
+    background-color: rgba(255,255,255,0.5);
+    border : none;
+}

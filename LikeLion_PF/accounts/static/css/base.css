@@ -1,0 +1,30 @@
+@import "/static/css/reset.css";
+body{ 
+    min-height: 100vh;
+    display : flex;
+    flex-direction: column;
+
+    background-color : black;
+    font-weight: bold ;
+    color : white;
+}
+
+nav { 
+    height : 50px;
+    background-color : gray; 
+    border-radius:0mm;
+}
+
+.navbar-logo{ 
+    vertical-align : middle;
+}
+
+.navbar-button, .nav-list{
+    margin-left : 10px;
+    float : left;
+}
+
+footer{   
+    margin-top: auto;
+    padding : 50px;
+}
