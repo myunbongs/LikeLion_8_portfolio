@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %} {% endblock %}
-
 {% block content %}
-    <p>{{ object }} 삭제할 거임?</p>
+    <h1 class="title">진짜 정말로 진심으로 삭제할거야?</h1><br>
     <form action="" method="post">
-        {{ form.as_p }}
         {% csrf_token %}
-        <input type="submit" value="삭제">
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-dark" id="btn-orange-margin">삭제하기</button>
     </form>
 {% endblock %}
