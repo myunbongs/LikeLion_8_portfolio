@@ -16,11 +16,11 @@
 
 <body>
     {% block content %}
-        <form class="SignUpForm" method= "POST" action ="{% url 'signup' %}">
+    <div class="SignUpForm-outerdiv">
+        <form method= "POST" action ="{% url 'signup' %}">
             {% csrf_token %}
             <p class="SignUpFormLabel">회원가입</p>
 
-            <div class="SignUpForm-outerdiv">
                 <div class="SignUp">
                     <label for="userid" class="form-label">아이디</label>
                     <input name="userid" type="text" class="form-control" id="userid">
@@ -49,12 +49,7 @@
                 <div class="SignUp">
                     <button type="submit" class="btn btn-primary">가입 완료</button>
                 </div>
-
-            </div>
-
-
         </form>
-
     </div>
     {% endblock %}
 

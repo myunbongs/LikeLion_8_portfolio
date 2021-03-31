@@ -1,5 +1,5 @@
-@import "/static/css/reset.css";
-body{ 
+@import "reset.css";
+body{
     min-height: 100vh;
     display : flex;
     flex-direction: column;

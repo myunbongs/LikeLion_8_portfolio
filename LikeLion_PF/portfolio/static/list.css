@@ -1,0 +1,42 @@
+@import "/accounts/static/css/reset.css";
+body{
+    color : white;
+    font-weight: 600;
+}
+.Somenail{
+    overflow : scroll;
+    margin-bottom : 25px;
+}
+
+.card-wrapper{
+    margin-top: 50px;
+}
+
+.card-title{
+    margin-bottom : 20px;
+}
+
+.card-img{
+    height : 280px;
+}
+
+.card{
+    float : left;
+    margin-left: 100px;
+    margin-right : 10px;
+    border : none;
+    margin-top: 50px;
+    width : 25rem;
+}
+
+.card-body{
+    background-color: rgba(0,0,0,0.3);
+}
+
+.btn{
+    margin-top : 20px;
+    background-color: rgba(0,0,0,0.5);
+    font-size : small;
+    width : 100px;
+    border : none;
+}
