@@ -19,7 +19,7 @@ def signup_view (request) :
                                             )
             
             request.session['user'] = user.userid 
-            return render(request,'home.html')
+            return render(request,'../../portfolio/templates/portfolio/list.html')
         else :
             return redirect('/')
 
@@ -36,7 +36,8 @@ def login_view(request) :
         
         if password==user.password:
                 request.session['user'] = user.userid 
-                return render(request,'home.html')
+                request.session.modified = True
+                return render(request,'../../portfolio/templates/portfolio/list.html')
         else :
             
             return render(request, 'login.html') #다시 로그인페이지로 
