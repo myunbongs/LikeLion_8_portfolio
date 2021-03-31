@@ -1,4 +1,4 @@
-@import "/static/css/reset.css";
+@import "reset.css";
 body{
     color : white;
     font-weight: 600;
@@ -14,19 +14,18 @@ body{
 }
 
 .logInFormLabel{
-    font-size : large;
-    margin-left : 40px;
+    font-size : x-large;
     padding-top : 60px;
+    padding-bottom: 10px;
 }
 
 .logInFormInput{
     margin-top : 50px;
-    margin-left : 40px;
+
 }
 
 .logInButton{
     margin-top : 50px;
-    margin-left : 40%;
     background-color: rgba(255,255,255,0.8);
     border : none;
     padding : 10px;
