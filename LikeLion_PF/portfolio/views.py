@@ -1,16 +1,18 @@
 from django.shortcuts import render, redirect
 from .models import Portfolio
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-
+from .forms import PortfolioForm
 
 class PortfolioCreateView(CreateView):
     model = Portfolio
-    fields = ['portfolio', 'title', 'content']
+    #fields = ['portfolio', 'title', 'content']
+    form_class = PortfolioForm
     template_name = 'portfolio/upload.html'
 
     # 작성된 내용 검증
     def form_valid(self, form):
         form.instance.author_id = self.request.user.id
+        
         if form.is_valid():
             form.instance.save()
             return redirect('/')
@@ -26,7 +28,8 @@ class PortfolioDeleteView(DeleteView):
 
 class PortfolioUpdateView(UpdateView):
     model = Portfolio
-    fields = ['portfolio', 'title', 'content']
+    #fields = ['portfolio', 'title', 'content']
+    form_class = PortfolioForm
     template_name = 'portfolio/update.html'
 
 
