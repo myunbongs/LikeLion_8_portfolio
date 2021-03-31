@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from .models import Account
+from django.contrib.auth.models import User
+from django.contrib import auth
+from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import check_password
 
 
@@ -12,14 +14,14 @@ def signup_view (request) :
         password2=request.POST.get('password2','defalut')
 
         if  password==password2 :
-            user = Account.objects.create(userid=request.POST['userid'], #ID
+            user = User.objects.create(username=request.POST['userid'], #ID
                             email=request.POST.get('email','defalut'),   #이메일
-                            username=request.POST['username'],  #이름
+                            first_name=request.POST['username'],  #이름
                             password=password, #비번
                                             )
             
-            request.session['user'] = user.userid 
-            return render(request,'../../portfolio/templates/portfolio/list.html')
+            auth.login(request,user)
+            return redirect('/')
         else :
             return redirect('/')
 
@@ -32,20 +34,25 @@ def login_view(request) :
         userid = request.POST['userid'] 
         password = request.POST['password']
 
-        user = Account.objects.get(userid=userid) # 없으면 404에러 띄우기
-        
-        if password==user.password:
-                request.session['user'] = user.userid 
-                request.session.modified = True
-                return render(request,'../../portfolio/templates/portfolio/list.html')
+        #user = User.objects.get(username = userid, password = password)
+        user= User.objects.get(username=userid) 
+        if user is not None  :
+            if  user.is_superuser:
+                if check_password(password,user.password) :
+                    auth.login(request,user)
+                    return redirect('/')
+            else :
+                user=User.objects.get(password=password,username=userid)
+                auth.login(request,user)
+                return redirect('/')
         else :
-            
-            return render(request, 'login.html') #다시 로그인페이지로 
+         #비밀번호가 틀림
+            return render(request, 'login.html')
     else : #요청이 get이면 login.html을 띄움
         return render(request,'login.html')
 
 
 
 def logout_view(request) :
-            request.session.clear()
+            auth.logout(request)
             return redirect('/')
