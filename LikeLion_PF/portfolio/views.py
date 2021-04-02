@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Portfolio
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .forms import PortfolioForm
+from django.core.paginator import Paginator
 
 class PortfolioCreateView(CreateView):
     model = Portfolio
@@ -34,5 +35,12 @@ class PortfolioUpdateView(UpdateView):
 
 
 def portfolio_list(request):
-    portfolios = Portfolio.objects.all()
+    portfolio_all = Portfolio.objects.all()
+    paginator = Paginator(portfolio_all, 8)
+    page = request.GET.get('page')
+    portfolios = paginator.get_page(page)
+
     return render(request, 'portfolio/list.html', {'portfolios': portfolios})
+
+
+

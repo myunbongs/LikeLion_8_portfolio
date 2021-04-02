@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e526c9c-709a-433c-b85f-f92564968a74" name="Default Changelist" comment="" />
+    <list default="true" id="3e526c9c-709a-433c-b85f-f92564968a74" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LikeLion_PF/portfolio/templates/portfolio/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/LikeLion_PF/portfolio/templates/portfolio/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LikeLion_PF/portfolio/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LikeLion_PF/portfolio/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +24,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/LikeLion_PF" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -31,6 +36,8 @@
       <option name="presentableId" value="Default" />
       <updated>1617170676818</updated>
       <workItem from="1617170682148" duration="12000" />
+      <workItem from="1617331705433" duration="3719000" />
+      <workItem from="1617383492759" duration="1590000" />
     </task>
     <servers />
   </component>
