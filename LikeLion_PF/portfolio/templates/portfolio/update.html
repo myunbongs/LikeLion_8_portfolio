@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
+<head>
+    {% load static %}
+    {% block extrahead %}
+    <link rel="stylesheet" href="{% static 'detail.css' %}">
+    {% endblock %}
+</head>
+
 {% block content %}
     <h1 class="title">게시글을 수정해주세요</h1><br> 
     <form action="" method="post" enctype="multipart/form-data">

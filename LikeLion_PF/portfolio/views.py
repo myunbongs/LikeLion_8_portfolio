@@ -6,7 +6,6 @@ from django.core.paginator import Paginator
 
 class PortfolioCreateView(CreateView):
     model = Portfolio
-    #fields = ['portfolio', 'title', 'content']
     form_class = PortfolioForm
     template_name = 'portfolio/upload.html'
 
@@ -29,14 +28,13 @@ class PortfolioDeleteView(DeleteView):
 
 class PortfolioUpdateView(UpdateView):
     model = Portfolio
-    #fields = ['portfolio', 'title', 'content']
     form_class = PortfolioForm
     template_name = 'portfolio/update.html'
 
 
 def portfolio_list(request):
     portfolio_all = Portfolio.objects.all()
-    paginator = Paginator(portfolio_all, 8)
+    paginator = Paginator(portfolio_all, 6)
     page = request.GET.get('page')
     portfolios = paginator.get_page(page)
 

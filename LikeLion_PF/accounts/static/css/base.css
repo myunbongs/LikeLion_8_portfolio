@@ -1,12 +1,13 @@
 @import "reset.css";
-body{
+body {
     min-height: 100vh;
     display : flex;
     flex-direction: column;
 
     background-color : black;
-    font-weight: bold ;
+    font-weight: bold !important;
     color : white;
+    text-align: center;
 }
 
 nav { 
@@ -24,7 +25,11 @@ nav {
     float : left;
 }
 
-footer{   
-    margin-top: auto;
-    padding : 50px;
+.container{
+    padding: 40px;
+}
+
+#footer{   
+    text-align: left;
+    padding: 40px;
 }
