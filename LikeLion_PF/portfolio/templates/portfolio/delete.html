@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
+<head>
+    {% load static %}
+    {% block extrahead %}
+    <link rel="stylesheet" href="{% static 'detail.css' %}">
+    {% endblock %}
+</head>
+
 {% block content %}
     <h1 class="title">진짜 정말로 진심으로 삭제할거야?</h1><br>
     <form action="" method="post">
