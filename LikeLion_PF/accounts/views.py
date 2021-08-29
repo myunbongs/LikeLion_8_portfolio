@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import check_password
+from django.shortcuts import get_object_or_404
+from .models import Profile
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -56,3 +60,18 @@ def login_view(request) :
 def logout_view(request) :
             auth.logout(request)
             return redirect('/')
+
+@login_required
+def profile_view (request) :
+    username = request.GET['username']
+    user = get_object_or_404(User, username=username)
+    if (request.method == 'GET') :
+        return render(request, 'profile.html', {'user_profile': user})
+
+    elif (request.method =='POST') :
+        user_profile = get_object_or_404(Profile, user=user)
+        user_profile.nickname =request.POST['nickname'],
+        user_profile.description = request.POST['description'],
+        user_profile.image =request.POST['image'],
+                                        
+
