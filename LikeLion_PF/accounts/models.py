@@ -5,10 +5,14 @@ from django.contrib import auth
 
 # Create your models here.
 
-'''
+
 class Profile (models.Model) :
     user=models.OneToOneField(auth.models.User,on_delete=models.CASCADE,null=True)   
-    username=models.CharField(max_length=10)
+   # username=models.CharField(max_length=10)
+    description = models.TextField(blank=True)
+    nickname = models.CharField(max_length=40, blank=True)
+    image = models.ImageField(blank=True)
+
 
 @receiver(post_save, sender=auth.models.User)
 def create_user_profile(sender, instance, created, **kwargs):
@@ -18,4 +22,3 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=auth.models.User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
-    '''
