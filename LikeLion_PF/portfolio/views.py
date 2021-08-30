@@ -1,4 +1,9 @@
-from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.http import HttpResponseForbidden
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils.decorators import method_decorator
+
 from .models import Portfolio
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .forms import PortfolioForm
@@ -25,11 +30,40 @@ class PortfolioDeleteView(DeleteView):
     success_url = '/'
     template_name = 'portfolio/delete.html'
 
+    def get(self, request, *args, **kwargs):
+        object_instance = self.get_object()  # Get the object
+        object_user = object_instance.author  # Get the user who owns the object
+
+        user = get_object_or_404(User, username=self.request.user)  # Get the user in the view
+        if object_user != user:  # See if the object_user is the same as the user
+            return HttpResponseForbidden('Permission Error')
+        else:
+            return render(request, self.template_name, {'object': object_instance})
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+
 
 class PortfolioUpdateView(UpdateView):
     model = Portfolio
     form_class = PortfolioForm
     template_name = 'portfolio/update.html'
+
+    def get(self, request, *args, **kwargs):
+        object_instance = self.get_object()  # Get the object
+        object_user = object_instance.author  # Get the user who owns the object
+
+        user = get_object_or_404(User, username=self.request.user)  # Get the user in the view
+        if object_user != user:  # See if the object_user is the same as the user
+            return HttpResponseForbidden('Permission Error')
+        else:
+            return render(request, self.template_name, {'object': object_instance})
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
 
 def portfolio_list(request):

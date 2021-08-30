@@ -4,7 +4,7 @@ body {
     display : flex;
     flex-direction: column;
 
-    background-color : black;
+    background: black;
     font-weight: bold !important;
     color : white;
     text-align: center;
@@ -18,7 +18,8 @@ body {
 
 nav { 
     height : 50px;
-    background-color : gray; 
+    background: rgb(236,234,95);
+    background: linear-gradient(90deg, rgba(255,132,0,1) 0%, rgba(236,234,95,1) 100%);
     border-radius:0mm;
 }
 
@@ -35,7 +36,7 @@ nav {
     padding: 10px;
 }
 
-#footer{   
+#footer{
     text-align: left;
     padding: 30px;
 }

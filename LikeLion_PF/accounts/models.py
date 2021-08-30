@@ -7,7 +7,7 @@ from django.contrib import auth
 
 
 class Profile (models.Model) :
-    user=models.OneToOneField(auth.models.User,on_delete=models.CASCADE,null=True)   
+    user = models.OneToOneField(auth.models.User,on_delete=models.CASCADE,null=True)
    # username=models.CharField(max_length=10)
     description = models.TextField(blank=True)
     nickname = models.CharField(max_length=40, blank=True)
