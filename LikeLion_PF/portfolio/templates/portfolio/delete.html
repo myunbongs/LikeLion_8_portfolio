@@ -8,7 +8,7 @@
 </head>
 
 {% block content %}
-    <h1 class="title">진짜 정말로 진심으로 삭제할거야?</h1><br>
+    <h1 class="title">게시글을 삭제하시겠습니까?</h1><br>
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}

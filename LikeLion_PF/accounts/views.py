@@ -7,10 +7,7 @@ from django.contrib.auth.hashers import check_password
 from django.shortcuts import get_object_or_404
 from .models import Profile
 from django.contrib.auth.decorators import login_required
-
-
-
-# Create your views here.
+from .forms import ProfileForm
 
 def signup_view (request) :
     if request.method == 'POST' : #요청이 post 형식이면 각 정보를 받아와서 user에 저장
@@ -31,7 +28,6 @@ def signup_view (request) :
 
     else : #요청이 get이면 signup.html을 띄움
         return render(request, 'signup.html')
-
 
 def login_view(request) :
     if request.method=='POST' : #요청이  post일때
@@ -55,23 +51,20 @@ def login_view(request) :
     else : #요청이 get이면 login.html을 띄움
         return render(request,'login.html')
 
-
-
 def logout_view(request) :
-            auth.logout(request)
-            return redirect('/')
+    auth.logout(request)
+    return redirect('/')
 
 @login_required
-def profile_view (request) :
-    username = request.GET['username']
+def profile_view (request, username) :
     user = get_object_or_404(User, username=username)
     if (request.method == 'GET') :
         return render(request, 'profile.html', {'user_profile': user})
 
     elif (request.method =='POST') :
         user_profile = get_object_or_404(Profile, user=user)
-        user_profile.nickname =request.POST['nickname'],
-        user_profile.description = request.POST['description'],
-        user_profile.image =request.POST['image'],
+        user_profile.nickname =request.POST['nickname']
+        user_profile.description = request.POST['description']
+        user_profile.image =request.POST['image']
                                         
 

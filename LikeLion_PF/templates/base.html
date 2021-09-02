@@ -19,9 +19,10 @@
             <a class="navbar-logo" href="{%  url 'portfolio:portfolio_list' %}">LikeLion SMU 9th Management</a>
             <ul class="navbar-button mb-2 mb-lg-0">
                 {% if user.is_authenticated or request.session.user is not None%} <!-- 로그인 된 사용자 -->
-                    <li class="nav-list"><a href="{%  url 'logout' %}"> 로그아웃 </a></li>
                     <li class="nav-list"><a href="{%  url 'portfolio:portfolio_upload' %}"> 글쓰기 </a></li>
-                {% else %}  <!-- 로그인 안 된 사용자 -->
+                    <li class="nav-list"><a href="{%  url 'profile' username=user.username%}"> 마이페이지 </a></li>
+                    <li class="nav-list"><a href="{%  url 'logout' %}"> 로그아웃 </a></li>
+                    {% else %}  <!-- 로그인 안 된 사용자 -->
                     <li class="nav-list"><a href="{%  url 'login' %}"> 로그인 </a></li>
                     <li class="nav-list"><a href="{%  url 'signup' %}"> 회원가입 </a></li>
                 {% endif %}
