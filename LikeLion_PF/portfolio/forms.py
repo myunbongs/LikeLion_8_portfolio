@@ -7,7 +7,7 @@ class PortfolioForm(forms.ModelForm):
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'autofocus':'True',
-            'placeholder': "제목을 입력해주세요",
+            'placeholder': "제목을 입력해 주세요",
             'style':'margin: 10px auto; width:50%;',
         })
     )
@@ -15,7 +15,7 @@ class PortfolioForm(forms.ModelForm):
         label="내용:",
         widget=forms.Textarea(attrs={
             'class': 'form-control',
-            'placeholder': "내용을 입력해주세요",
+            'placeholder': "내용을 입력해 주세요",
             'style':'margin: 10px auto; width:50%;',
             'cols': 50, 'rows': 13
         })

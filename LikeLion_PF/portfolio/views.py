@@ -24,7 +24,6 @@ class PortfolioCreateView(CreateView):
         else:
             return self.render_to_response({'form': form})
 
-
 class PortfolioDeleteView(DeleteView):
     model = Portfolio
     success_url = '/'
@@ -43,8 +42,6 @@ class PortfolioDeleteView(DeleteView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-
-
 
 class PortfolioUpdateView(UpdateView):
     model = Portfolio
